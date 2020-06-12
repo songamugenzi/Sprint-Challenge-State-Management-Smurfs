@@ -2,11 +2,9 @@ import axios from 'axios';
 
 export const FETCH_SMURFS = 'FETCH_SMURFS';
 export const DISPLAY_SMURFS = 'DISPLAY_SMURFS';
-export const CREATE_SMURF = 'CREATE_SMURF';
 export const SET_ERROR = 'SET_ERROR';
 
 export const visitVillage = () => dispatch => {
-    dispatch({ type: FETCH_SMURFS });
     axios
         .get('http://localhost:3333/smurfs')
         .then(res => {
@@ -20,7 +18,6 @@ export const visitVillage = () => dispatch => {
 }
 
 export const buildVillage = (newbornSmurf) => dispatch => {
-    dispatch({ type: CREATE_SMURF });
     axios
         .post('http://localhost:3333/smurfs', newbornSmurf)
         .then(res => {

@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from 'react-redux';
 import Form from './CreateSmurfForm';
+import { visitVillage } from '../actions';
 
 const App = props => {
+  const fetch = () => props.visitVillage() 
+
+  useEffect(() => {
+    props.visitVillage()
+  }, [])
+
+  console.log(props)
 
   return (
     <div className="App">
@@ -32,7 +40,7 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  {}
+  { visitVillage }
 )(App);
 
 
